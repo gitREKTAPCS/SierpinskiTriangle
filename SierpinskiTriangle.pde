@@ -1,18 +1,40 @@
+int triangleX = 5;
+int triangleY = 450;
+int triangleLen = 1;
+int red = 0;
+int green = 0;
+int blue = 0;
+
 public void setup()
 {
 	size(500, 500);
+	
+	noStroke();
 }
 public void draw()
 {
-	sierpinski(0,450,500);
-}
-public void mouseDragged()//optional
-{
+	background(255);
+	sierpinski(triangleX,triangleY,triangleLen);
 
+	if(mousePressed){
+		triangleLen+=100;
+	}
 }
+public void mouseMoved()//optional
+{
+	triangleX = mouseX;
+	triangleY = mouseY;	
+	red = mouseX-200/2;
+	green = mouseY/2;
+	blue = mouseY/2;
+}
+
+
+
 public void sierpinski(int x, int y, int len) 
 {
 	if(len <= 20){
+		fill(red, green, blue);
 		triangle(x, y, x+len, y, x+len/2, y-(int)((len*Math.sqrt(3))/2));
 	}
 	else{
