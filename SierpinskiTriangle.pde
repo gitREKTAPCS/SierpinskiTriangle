@@ -16,8 +16,11 @@ public void draw()
 	background(255);
 	sierpinski(triangleX,triangleY,triangleLen);
 
-	if(mousePressed){
-		triangleLen+=100;
+	if(mousePressed && (mouseButton == LEFT)){
+		triangleLen+=25;
+	}
+	else if(mousePressed && (mouseButton == RIGHT) && triangleLen > 5){
+		triangleLen-=25;
 	}
 }
 public void mouseMoved()//optional
